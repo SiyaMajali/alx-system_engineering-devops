@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Script for restart nginx running as user nginx on 8080
-chmod 777 /etc/nginx/nginx.conf
+#run nginx as nginx
 pkill apache2
-sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
-sudo -u nginx service nginx start
+chmod 777 /etc/nginx/nginx.conf
+chown nginx /etc/nginx -R
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+sudo -u nginx service nginx restart
